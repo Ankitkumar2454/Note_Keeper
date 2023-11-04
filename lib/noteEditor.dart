@@ -58,7 +58,6 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
       "title": _titleController.text.trim(),
       "description": _mainController.text.trim(),
       "attachment": [],
-      "createdAt": DateTime.now(),
     };
     final response = await http.post(
       url,
@@ -67,13 +66,15 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
       },
       body: jsonEncode(data),
     );
-    if (response.statusCode == 200) {
-      print("POST Request Successful");
-      print(response.body);
-    } else {
-      print("Failed, Status code: ${response.statusCode}");
-      print(response.body);
-    }
+    setState(() {
+      if (response.statusCode == 200) {
+        print("POST Request Successful");
+        print(response.body);
+      } else {
+        print("Failed, Status code: ${response.statusCode}");
+        print(response.body);
+      }
+    });
   }
 
   void _showBottomSheet() {
