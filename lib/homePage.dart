@@ -61,7 +61,7 @@ class _HomepageState extends State<Homepage> {
       } else if (difference.inHours > 0) {
         return '${difference.inHours} hours ago';
       } else if (difference.inMinutes > 0) {
-        return '${difference.inMinutes} minutes ago';
+        return '${difference.inMinutes} min ago';
       } else {
         return 'Just now';
       }
@@ -110,18 +110,13 @@ class _HomepageState extends State<Homepage> {
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SingleChildScrollView(
-            child: (value != null)
-                ? Column(
-                    children: [
-                      NotesContainerData(formatTimeAgo, "To Do "),
-                      NotesContainerData(formatTimeAgo, "Notes"),
-                      NotesContainerData(formatTimeAgo, "Diary"),
-                    ],
-                  )
-                : Container(
-                    child: Center(child: Text("network problem")),
-                  ),
-          ),
+              child: Column(
+            children: [
+              NotesContainerData(formatTimeAgo, "To Do "),
+              NotesContainerData(formatTimeAgo, "Notes"),
+              NotesContainerData(formatTimeAgo, "Diary"),
+            ],
+          )),
         ),
         bottomNavigationBar: Container(
           height: 55,

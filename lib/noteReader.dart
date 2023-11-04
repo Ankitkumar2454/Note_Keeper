@@ -18,6 +18,7 @@ class _NoteReaderScreenState extends State<NoteReaderScreen> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          foregroundColor: Colors.white,
           backgroundColor: const Color.fromARGB(255, 92, 4, 108),
           elevation: 0,
           toolbarHeight: 80,

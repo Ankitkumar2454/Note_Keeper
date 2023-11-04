@@ -386,7 +386,12 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            createPost();
+            createPost().then(
+              (value) => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NoteEditorScreen()),
+              ),
+            );
           });
         },
         backgroundColor: Colors.blue,
